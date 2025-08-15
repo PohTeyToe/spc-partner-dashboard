@@ -84,4 +84,3 @@ def create_app(test_config=None):
     register_cli(app)
 
     return app
-
