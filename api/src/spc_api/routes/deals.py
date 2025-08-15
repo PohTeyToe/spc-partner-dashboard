@@ -135,3 +135,4 @@ def delete_deal(deal_id: int):
     db.session.delete(deal)
     db.session.commit()
     return ("", 204)
+                    
