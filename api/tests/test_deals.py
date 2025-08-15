@@ -76,7 +76,11 @@ def test_crud_cycle():
         headers = {"Authorization": f"Bearer {token}"}
 
         # create
-        create_resp = client.post("/deals", json={"title": "New Deal", "description": "X"}, headers=headers)
+        create_resp = client.post(
+            "/deals",
+            json={"title": "New Deal", "description": "X"},
+            headers=headers,
+        )
         assert create_resp.status_code == 201, create_resp.get_json()
         deal_id = create_resp.get_json()["id"]
 
