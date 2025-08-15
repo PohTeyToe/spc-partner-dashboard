@@ -39,6 +39,3 @@ def test_login_ok():
         assert "access_token" in data
 
 
-
-
-

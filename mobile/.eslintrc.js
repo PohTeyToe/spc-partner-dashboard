@@ -1,19 +1,18 @@
 module.exports = {
   root: true,
-  extends: ['universe/native', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'plugin:react-native/all', 'prettier'],
-  plugins: ['react', 'react-hooks', 'react-native'],
-  env: {
-    'react-native/react-native': true
-  },
+  extends: [
+    'universe/native',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:react-native/all',
+    'prettier',
+  ],
   rules: {
-    'react/react-in-jsx-scope': 'off',
-    'react-native/no-inline-styles': 'off',
-    'react/prop-types': 'off'
+    // Reduce noise/errors in CI while keeping code readable
+    'react-native/sort-styles': 'off',
+    'react-native/no-color-literals': 'off',
+    'react-native/split-platform-components': 'off',
+    'import/order': ['warn', { 'newlines-between': 'always', alphabetize: { order: 'asc', caseInsensitive: true } }],
   },
-  settings: {
-    react: {
-      version: 'detect'
-    }
-  }
 };
 

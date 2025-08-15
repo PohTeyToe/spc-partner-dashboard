@@ -40,8 +40,6 @@ def register_cli(app: Flask):
         from .models import Deal
         existing_count = db.session.query(Deal).filter_by(merchant_id=merchant.id).count()
         if existing_count == 0:
-            from datetime import datetime, timedelta
-
             deals_to_create = [
                 {
                     "title": "10% off at checkout",
@@ -56,7 +54,6 @@ def register_cli(app: Flask):
                     "description": "Orders over $50 qualify for free shipping.",
                 },
             ]
-            now = datetime.utcnow()
             # Our model does not have active/starts_at/ends_at; adapt by creating basic records
             for payload in deals_to_create:
                 d = Deal(

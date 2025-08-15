@@ -14,7 +14,11 @@ def setup_app_and_seed():
         merchant = Merchant(name="Demo Merchant")
         db.session.add(merchant)
         db.session.commit()
-        user = User(email="demo@merchant.com", password_hash=bcrypt.hash("Password123!"), merchant_id=merchant.id)
+        user = User(
+            email="demo@merchant.com",
+            password_hash=bcrypt.hash("Password123!"),
+            merchant_id=merchant.id,
+        )
         db.session.add(user)
         db.session.commit()
         deals = [
@@ -27,7 +31,10 @@ def setup_app_and_seed():
 
 
 def login_get_token(client):
-    resp = client.post("/auth/login", json={"email": "demo@merchant.com", "password": "Password123!"})
+    resp = client.post(
+        "/auth/login",
+        json={"email": "demo@merchant.com", "password": "Password123!"},
+    )
     assert resp.status_code == 200
     return resp.get_json()["access_token"]
 
@@ -50,7 +57,10 @@ def test_list_deals():
         assert data["total"] >= 2
 
         # pagination and search
-        resp = client.get("/deals?per_page=1&page=1&q=Deal%20A", headers={"Authorization": f"Bearer {token}"})
+        resp = client.get(
+            "/deals?per_page=1&page=1&q=Deal%20A",
+            headers={"Authorization": f"Bearer {token}"},
+        )
         assert resp.status_code == 200
         data = resp.get_json()
         assert data["per_page"] == 1

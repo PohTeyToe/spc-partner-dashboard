@@ -31,7 +31,7 @@ def list_deals():
     active_param = request.args.get("active")
     active = None
     if active_param is not None:
-        if active_param.lower() in ("true", "1"): 
+        if active_param.lower() in ("true", "1"):
             active = True
         elif active_param.lower() in ("false", "0"):
             active = False

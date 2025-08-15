@@ -11,7 +11,3 @@ def test_health_ok():
         assert resp.status_code == 200
         assert resp.get_json() == {"status": "ok"}
 
-
-
-
-
