@@ -1,6 +1,6 @@
 # SPC Partner Dashboard
 
-[![Expo SDK][badge-expo]][link-expo] [![React Native][badge-rn]][link-rn] [![Flask][badge-flask]][link-flask] [![Python][badge-python]][link-python] [![License][badge-license]][link-license] [![CI][badge-ci]][link-ci]
+[![Expo SDK][badge-expo]][link-expo] [![React Native][badge-rn]][link-rn] [![Flask][badge-flask]][link-flask] [![Python][badge-python]][link-python]
 
 A portfolio‑grade full‑stack demo inspired by SPC Student Price Card. Mobile app built with React Native (Expo) and a Flask API. Manage merchant deals end‑to‑end with real authentication, seed data, and a polished mobile UX.
 
