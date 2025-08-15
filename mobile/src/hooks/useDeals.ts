@@ -14,7 +14,14 @@ export function useInfiniteDeals(params: { perPage?: number; q?: string; active?
   const pageSize = params.perPage ?? 20;
   return useInfiniteQuery<Paginated<Deal>>({
     queryKey: ['deals', 'infinite', params],
-    queryFn: ({ pageParam = 1 }) => fetchDeals({ page: pageParam, perPage: pageSize, q: params.q, active: params.active }),
+    // TanStack Query types pageParam as unknown; coerce to number with default
+    queryFn: ({ pageParam }) =>
+      fetchDeals({
+        page: (pageParam as number | undefined) ?? 1,
+        perPage: pageSize,
+        q: params.q,
+        active: params.active
+      }),
     getNextPageParam: (lastPage) => (lastPage.has_next ? lastPage.page + 1 : undefined),
     initialPageParam: 1
   });
