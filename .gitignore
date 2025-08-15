@@ -1,0 +1,47 @@
+# General
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+*.tmp
+*.swp
+.idea/.vscode
+
+# Node / Expo
+node_modules/
+mobile/node_modules/
+mobile/.expo/
+mobile/.expo-shared/
+mobile/dist/
+mobile/.cache/
+mobile/.env.local
+mobile/.env.development
+mobile/.env.production
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+env/
+venv/
+api/.venv/
+api/.mypy_cache/
+api/.env
+api/instance/
+api/migrations/versions/__pycache__/
+
+# Build artifacts
+coverage/
+dist/
+build/
+
+# macOS
+.AppleDouble
+.LSOverride
+Icon?
+
+# Local SQLite DB
+api/spc.db
+

@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "SPC Partner Dashboard",
+    "slug": "spc-partner-dashboard",
+    "version": "1.0.0",
+    "sdkVersion": "51.0.0",
+    "platforms": ["ios", "android"],
+    "orientation": "portrait",
+    
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.example.spcpartnerdashboard"
+    },
+    "android": {
+      "package": "com.example.spcpartnerdashboard"
+    }
+  }
+}
+

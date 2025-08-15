@@ -1,0 +1,56 @@
+name: CI - API
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v3
+        with:
+          poetry-version: '1.8.3'
+
+      - name: Install dependencies
+        working-directory: api
+        run: |
+          poetry env use 3.11
+          poetry install --no-interaction
+
+      - name: Lint (flake8)
+        working-directory: api
+        run: |
+          poetry run flake8 src tests
+
+      - name: Check formatting (black)
+        working-directory: api
+        run: |
+          poetry run black --check src tests
+
+      - name: Check imports (isort)
+        working-directory: api
+        run: |
+          poetry run isort --check-only src tests
+
+      - name: Run tests (pytest)
+        working-directory: api
+        env:
+          FLASK_ENV: testing
+          SECRET_KEY: test
+          JWT_SECRET_KEY: test
+          DATABASE_URL: sqlite://
+        run: |
+          poetry run pytest -q
+

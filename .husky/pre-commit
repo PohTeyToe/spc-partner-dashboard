@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Run mobile lint-staged from the mobile workspace
+cd mobile || exit 1
+npx --yes lint-staged
+
+
+
+
+
