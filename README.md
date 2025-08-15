@@ -4,8 +4,6 @@
 
 A portfolio‑grade full‑stack demo inspired by SPC Student Price Card. Mobile app built with React Native (Expo) and a Flask API. Manage merchant deals end‑to‑end with real authentication, seed data, and a polished mobile UX.
 
-> Tip: Replace the badge URL placeholders at the bottom of this README with your actual shields and links after pushing to GitHub.
-
 ## Highlights
 
 - Mobile: Expo SDK 51, React Navigation, React Query, AsyncStorage, Axios, Gesture Handler with swipe actions and toasts.
@@ -112,23 +110,23 @@ MIT
 Badge references – replace these placeholders after pushing to GitHub.
 Examples: use shields from img.shields.io and link to your project pages.
 -->
-[badge-expo]: PLACEHOLDER_BADGE_EXPO_IMG
-[link-expo]: PLACEHOLDER_LINK_EXPO
+[badge-expo]: https://img.shields.io/badge/Expo-SDK%2051-4630EB?logo=expo&logoColor=white
+[link-expo]: https://docs.expo.dev
 
-[badge-rn]: PLACEHOLDER_BADGE_RN_IMG
-[link-rn]: PLACEHOLDER_LINK_RN
+[badge-rn]: https://img.shields.io/badge/React%20Native-0.74-61DAFB?logo=react&logoColor=white
+[link-rn]: https://reactnative.dev
 
-[badge-flask]: PLACEHOLDER_BADGE_FLASK_IMG
-[link-flask]: PLACEHOLDER_LINK_FLASK
+[badge-flask]: https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white
+[link-flask]: https://flask.palletsprojects.com
 
-[badge-python]: PLACEHOLDER_BADGE_PYTHON_IMG
-[link-python]: PLACEHOLDER_LINK_PYTHON
+[badge-python]: https://img.shields.io/badge/Python-3.11%20%7C%203.12-3776AB?logo=python&logoColor=white
+[link-python]: https://www.python.org
 
-[badge-license]: PLACEHOLDER_BADGE_LICENSE_IMG
-[link-license]: PLACEHOLDER_LINK_LICENSE
+[badge-license]: https://img.shields.io/github/license/OWNER/REPO
+[link-license]: https://github.com/OWNER/REPO/blob/main/LICENSE
 
-[badge-ci]: PLACEHOLDER_BADGE_CI_IMG
-[link-ci]: PLACEHOLDER_LINK_CI
+[badge-ci]: https://img.shields.io/github/actions/workflow/status/OWNER/REPO/ci-mobile.yml?branch=main&label=CI
+[link-ci]: https://github.com/OWNER/REPO/actions
 # spc-partner-dashboard
 
 A portfolio-grade monorepo containing:
