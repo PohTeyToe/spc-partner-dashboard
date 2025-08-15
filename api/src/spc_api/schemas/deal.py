@@ -18,6 +18,3 @@ class DealUpdateSchema(Schema):
     title = fields.Str()
     description = fields.Str(allow_none=True)
 
-
-
-

@@ -9,4 +9,3 @@ migrate = Migrate()
 jwt = JWTManager()
 cors = CORS(resources={r"*": {"origins": "*"}})
 ma = Marshmallow()
-

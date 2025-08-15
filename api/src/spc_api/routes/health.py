@@ -7,7 +7,3 @@ bp = Blueprint("health", __name__)
 def health():
     return jsonify({"status": "ok"})
 
-
-
-
-

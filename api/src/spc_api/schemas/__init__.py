@@ -18,5 +18,3 @@ class UserSchema(Schema):
 
 # Export Deal schemas from the dedicated module
 from .deal import DealSchema, DealCreateSchema, DealUpdateSchema  # noqa: E402,F401
-
-
