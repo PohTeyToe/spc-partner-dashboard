@@ -64,7 +64,9 @@ def test_list_deals():
         assert resp.status_code == 200
         data = resp.get_json()
         assert data["per_page"] == 1
-        assert any("Deal A" in item["title"] for item in data["items"]) or data["total"] >= 1
+        assert any(
+            "Deal A" in item["title"] for item in data["items"]
+        ) or data["total"] >= 1
 
 
 def test_crud_cycle():
@@ -95,7 +97,4 @@ def test_crud_cycle():
         # confirm 404
         get_resp = client.get(f"/deals/{deal_id}", headers=headers)
         assert get_resp.status_code == 404
-
-
-
 

@@ -6,8 +6,7 @@ export function useDeals(params: { page?: number; perPage?: number; q?: string; 
   const key = ['deals', params];
   return useQuery<Paginated<Deal>>({
     queryKey: key,
-    queryFn: () => fetchDeals(params),
-    keepPreviousData: true
+    queryFn: () => fetchDeals(params)
   });
 }
 

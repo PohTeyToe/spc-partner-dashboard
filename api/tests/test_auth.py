@@ -37,5 +37,3 @@ def test_login_ok():
         assert resp.status_code == 200, resp.get_json()
         data = resp.get_json()
         assert "access_token" in data
-
-

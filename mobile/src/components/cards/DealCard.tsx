@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: colors.muted,
+    borderColor: colors.border,
     borderRadius: 8,
     padding: 12,
     marginBottom: 12

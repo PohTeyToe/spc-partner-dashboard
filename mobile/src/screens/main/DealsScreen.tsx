@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   search: {
     borderWidth: 1,
-    borderColor: colors.muted,
+    borderColor: colors.border,
     padding: 10,
     borderRadius: 8,
     marginBottom: 8
@@ -156,13 +156,13 @@ const styles = StyleSheet.create({
   },
   filterChip: {
     borderWidth: 1,
-    borderColor: colors.muted,
+    borderColor: colors.border,
     paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 16
   },
   filterChipActive: {
-    backgroundColor: colors.muted
+    backgroundColor: colors.border
   },
   filterChipText: {
     color: colors.text

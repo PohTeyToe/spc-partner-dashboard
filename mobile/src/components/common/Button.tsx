@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary
   },
   secondary: {
-    backgroundColor: colors.muted
+    backgroundColor: colors.border
   },
   danger: {
     backgroundColor: colors.danger

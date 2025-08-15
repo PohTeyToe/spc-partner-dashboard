@@ -35,7 +35,3 @@ class Deal(db.Model, TimestampMixin):
     description = db.Column(db.Text, nullable=True)
     merchant_id = db.Column(db.Integer, db.ForeignKey("merchants.id"), nullable=False)
 
-
-
-
-
