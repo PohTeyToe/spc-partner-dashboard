@@ -1,3 +1,134 @@
+# SPC Partner Dashboard
+
+[![Expo SDK][badge-expo]][link-expo] [![React Native][badge-rn]][link-rn] [![Flask][badge-flask]][link-flask] [![Python][badge-python]][link-python] [![License][badge-license]][link-license] [![CI][badge-ci]][link-ci]
+
+A portfolio‑grade full‑stack demo inspired by SPC Student Price Card. Mobile app built with React Native (Expo) and a Flask API. Manage merchant deals end‑to‑end with real authentication, seed data, and a polished mobile UX.
+
+> Tip: Replace the badge URL placeholders at the bottom of this README with your actual shields and links after pushing to GitHub.
+
+## Highlights
+
+- Mobile: Expo SDK 51, React Navigation, React Query, AsyncStorage, Axios, Gesture Handler with swipe actions and toasts.
+- API: Flask, SQLAlchemy, Alembic, Marshmallow, Flask‑JWT‑Extended with a proper “sub is string” fix.
+- Features: Login with token persistence, API health check, Deals list with search, create, edit, swipe‑to‑delete, pull‑to‑refresh, loading/empty/error states.
+- Android emulator networking solved: automatic API base URL detection (10.0.2.2), plus manual override via app.json.
+
+## Quick Start
+
+Prereqs: Node 20+, Git, Android Emulator (or a device with Expo Go), Python 3.12/3.13, Poetry.
+
+1) API
+
+cd api
+poetry install
+poetry run flask --app spc_api:create_app db upgrade
+poetry run flask --app spc_api:create_app seed
+poetry run flask --app spc_api:create_app run --port 5000 --debug
+
+
+2) Mobile (Android emulator uses 10.0.2.2 to reach the host)
+
+cd mobile
+npm install
+npx expo install expo-device
+npx expo start -c
+
+press "a" to open Android, or scan the QR in Expo Go
+
+Login with: demo@merchant.com / Password123!
+
+## Feature Overview
+
+### Mobile (Expo)
+
+| Feature | Status | Notes |
+| --- | --- | --- |
+| Login + token persistence | ✅ | Stored in AsyncStorage; auto‑restore on app launch |
+| API health check | ✅ | “Test API” shows {"status":"ok"} |
+| Deals list | ✅ | Fetches from Flask API; pull‑to‑refresh |
+| Search | ✅ | Client‑side filter over fetched list |
+| Create deal | ✅ | POST /deals; success toast + list refresh |
+| Edit deal | ✅ | PATCH /deals/:id via Edit screen |
+| Delete deal | ✅ | Swipe‑to‑delete with confirm, or from Edit screen |
+| Loading/empty/error states | ✅ | Activity indicator, empty view, retry |
+| Toasts | ✅ | Cross‑platform (ToastAndroid/Alert) |
+| Auto API base URL | ✅ | Android emulator → 10.0.2.2; iOS sim → 127.0.0.1; devices → LAN IP |
+| Gesture config | ✅ | GestureHandlerRootView + first import of react-native-gesture-handler |
+| Pagination / infinite scroll | 🟡 Planned | See Roadmap |
+| Profile / Sign out screen | 🟡 Planned | Shows merchant info and sign out |
+
+### API (Flask)
+
+| Feature | Status | Notes |
+| --- | --- | --- |
+| Health endpoint | ✅ | GET /health returns {"status":"ok"} |
+| Auth (JWT) | ✅ | Login issues tokens; “sub” serialized as string |
+| Deals CRUD | ✅ | GET list/detail, POST, PATCH, DELETE |
+| Data models + Marshmallow | ✅ | SQLAlchemy models and schemas package |
+| Alembic migrations + seed | ✅ | CLI seed creates demo merchant, user, and deals |
+| Tests (pytest) | 🟡 Planned | See Roadmap |
+| Hosted demo | 🟡 Planned | Render/Railway/Fly |
+
+## Project Structure
+
+- api/ — Flask API, models, routes, schemas (as a package), Alembic migrations, CLI seed.
+- mobile/ — Expo app, navigation, screens, services, toast helper, gesture configuration.
+
+## Notable Implementation Details
+
+- JWT subject (“sub”) must be a string in PyJWT; tokens are issued with identity as string and cast to int on use.
+- Gesture handler is configured correctly: app wrapped in GestureHandlerRootView and the entry imports react-native-gesture-handler first.
+- Auto API base URL prefers 10.0.2.2 on Android emulators, 127.0.0.1 on iOS simulator, and LAN IP on devices; supports manual override via app.json extra.apiUrl.
+
+## Screenshots
+
+Add screenshots or a short GIF in docs/screenshots and reference them here.
+
+- Login → Deals list (search, pull‑to‑refresh).
+- Edit deal and swipe‑to‑delete.
+
+Example (update paths once images exist):
+
+
+
+
+## Troubleshooting
+
+- Android emulator cannot reach 127.0.0.1 — use 10.0.2.2. The app auto‑detects this; you can also set expo.extra.apiUrl in app.json to force a value.
+- If gestures error, ensure App is wrapped in GestureHandlerRootView and react-native-gesture-handler is the first import in the entry file.
+- If you see “Subject must be a string” from the API, ensure tokens are created with identity as str(...) and cast back to int with get_jwt_identity().
+
+## Roadmap
+
+- Tests: pytest for API (auth + deals) and one RN component test (Deals list).
+- CI: GitHub Actions to run lint, typecheck, and tests on pull requests.
+- Pagination for deals, Profile screen with sign out, and a hosted demo API.
+
+## License
+
+MIT
+
+<!--
+Badge references – replace these placeholders after pushing to GitHub.
+Examples: use shields from img.shields.io and link to your project pages.
+-->
+[badge-expo]: PLACEHOLDER_BADGE_EXPO_IMG
+[link-expo]: PLACEHOLDER_LINK_EXPO
+
+[badge-rn]: PLACEHOLDER_BADGE_RN_IMG
+[link-rn]: PLACEHOLDER_LINK_RN
+
+[badge-flask]: PLACEHOLDER_BADGE_FLASK_IMG
+[link-flask]: PLACEHOLDER_LINK_FLASK
+
+[badge-python]: PLACEHOLDER_BADGE_PYTHON_IMG
+[link-python]: PLACEHOLDER_LINK_PYTHON
+
+[badge-license]: PLACEHOLDER_BADGE_LICENSE_IMG
+[link-license]: PLACEHOLDER_LINK_LICENSE
+
+[badge-ci]: PLACEHOLDER_BADGE_CI_IMG
+[link-ci]: PLACEHOLDER_LINK_CI
 # spc-partner-dashboard
 
 A portfolio-grade monorepo containing:
