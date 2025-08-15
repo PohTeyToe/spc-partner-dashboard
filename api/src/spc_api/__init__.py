@@ -83,4 +83,3 @@ def create_app(test_config=None):
     register_routes(app)
     register_cli(app)
     return app
-# end
